@@ -26,15 +26,9 @@ conda create --name sctoolkit python=3.11 -y
 # Activate it
 conda activate sctoolkit
 
-# Install scanpy and its core dependencies from conda-forge
-conda install -c conda-forge scanpy python-igraph leidenalg jupyterlab -y
-
-# Install any remaining dependencies using pip
-pip install harmonypy scvi-tools seaborn
-
 # Install sctoolkit
-git clone https://github.com/gs512/das2_sc_toolkit.git
-cd das2_sc_toolkit
+git clone https://github.com/gs512/cbi_scrna_2026.git
+cd cbi_scrna_2026
 pip install -e .
 
 ```
