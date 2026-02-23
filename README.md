@@ -33,6 +33,9 @@ pip install -e .
 
 ```
 
+**Datasets:**
+[Download link](https://drive.google.com/drive/folders/12lpQN-rJMFK-hg0W1IMcDV8acZ4ul3dG?usp=sharing)
+
 ## License
 
 This project is licensed under the MIT License.
