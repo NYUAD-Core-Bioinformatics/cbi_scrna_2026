@@ -1,0 +1,9 @@
+scipy
+numpy<2.0
+pandas
+scanpy
+harmonypy
+scvi-tools
+seaborn
+leidenalg
+python-igraph

@@ -1,0 +1,127 @@
+Metadata-Version: 2.4
+Name: sctoolkit
+Version: 0.1
+Summary: A toolkit of helper functions to accelerate single-cell analysis workflows with Scanpy.
+Author-email: CGSB <gas361@nyu.edu>
+License: MIT License
+        
+        Copyright (c) 2025 Giuseppe SALDI
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+        
+Project-URL: Homepage, https://github.com/gs512/das2_sc_toolkit
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Science/Research
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: scipy
+Requires-Dist: numpy<2.0
+Requires-Dist: pandas
+Requires-Dist: scanpy
+Requires-Dist: harmonypy
+Requires-Dist: scvi-tools
+Requires-Dist: seaborn
+Requires-Dist: leidenalg
+Requires-Dist: python-igraph
+Dynamic: license-file
+
+# sctoolkit
+
+`sctoolkit` is a Python package that provides a collection of helper functions designed to speed up and streamline common workflows in single-cell analysis with Scanpy.
+
+## Key Features
+
+* **Streamlined Preprocessing**: Quickly load 10x Genomics H5 data and run a standard preprocessing workflow with a single function.
+* **Expression Analysis**: Easily analyze and visualize gene expression across different cell clusters or conditions.
+* **Cell Cycle Scoring**: Calculate cell cycle scores using the established gene sets from Tirosh et al., 2015.
+
+## Installation
+
+You can install `sctoolkit` directly from the GitHub repository.
+
+**Prerequisites:**
+
+* Python 3.10+
+* `pip` and `git`
+
+**Install from GitHub**
+
+```bash
+# Create a new environment
+conda create --name sctoolkit python=3.11 -y
+
+# Activate it
+conda activate sctoolkit
+
+# Install scanpy and its core dependencies from conda-forge
+conda install -c conda-forge scanpy python-igraph leidenalg jupyterlab -y
+
+# Install any remaining dependencies using pip
+pip install harmonypy scvi-tools seaborn
+
+# Install sctoolkit
+git clone https://github.com/gs512/das2_sc_toolkit.git
+cd das2_sc_toolkit
+pip install -e .
+
+# Run Jupyter
+cd 
+jupyter-lab --ip=0.0.0.0
+```
+
+## Usage
+
+Here is a quick example of how to use `sctoolkit` to preprocess data and calculate cell cycle scores.
+
+```python
+import sctoolkit as sct
+import scanpy as sc
+
+# Provide the path to your 10x data file
+h5_file = 'path/to/your/filtered_feature_bc_matrix.h5'
+
+# Use the main preprocessing function
+adata = sct.preprocess_adata(
+    filename=h5_file,
+    batch_name='sample01'
+)
+
+# Calculate cell cycle scores and add them to adata.obs
+sct.calculate_cell_cycle_scores(adata)
+
+# You can now see the results
+print(adata.obs[['leiden', 'phase', 'S_score', 'G2M_score']].head())
+
+sc.pl.umap(adata, color=['leiden', 'phase'])
+```
+
+## Tutorial
+
+For a more detailed, step-by-step guide on how to use the analysis functions, please see the example Jupyter Notebook.
+
+* [Tutorial: Analyzing Gene Expression with `analyze_expression`](./ipynb/get_counts_by.ipynb)
+
+## License
+
+This project is licensed under the MIT License.

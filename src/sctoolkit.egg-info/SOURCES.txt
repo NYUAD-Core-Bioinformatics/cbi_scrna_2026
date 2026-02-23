@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+src/sctoolkit/__init__.py
+src/sctoolkit/helpers.py
+src/sctoolkit.egg-info/PKG-INFO
+src/sctoolkit.egg-info/SOURCES.txt
+src/sctoolkit.egg-info/dependency_links.txt
+src/sctoolkit.egg-info/requires.txt
+src/sctoolkit.egg-info/top_level.txt
