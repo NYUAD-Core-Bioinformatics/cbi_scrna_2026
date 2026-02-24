@@ -21,13 +21,13 @@ You can install `sctoolkit` directly from the GitHub repository.
 
 ```bash
 # Create a new environment
-conda create --name sctoolkit python=3.11 -y
+conda create --name sctoolkit python=3.10 -y
 
 # Activate it
 conda activate sctoolkit
 
 # Install sctoolkit
-git clone https://github.com/gs512/cbi_scrna_2026.git
+git clone git@github.com:NYUAD-Core-Bioinformatics/cbi_scrna_2026.git
 cd cbi_scrna_2026
 pip install -e .
 

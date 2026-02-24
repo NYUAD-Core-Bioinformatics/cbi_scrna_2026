@@ -47,8 +47,7 @@ The deck motivates normalizing by count depth and log-transforming.
 
 8) **Dimensionality reduction and neighbors graph**
    - (a) How many PCs did you keep? Describe your rationale (e.g., elbow plot, variance explained, stability).
-   - (b) What `n_neighbors` did you choose for the kNN graph, and why?
-   - (c) In 2–3 sentences, describe what the neighbors graph is used for in the pipeline. 
+   - (b) In 2–3 sentences, describe what the neighbors graph is used for in the pipeline. 
 
 9) **Clustering**
    - (a) What clustering method and resolution did you use (e.g., Leiden resolution)?
