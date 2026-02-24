@@ -21,7 +21,7 @@ You can install `sctoolkit` directly from the GitHub repository.
 
 ```bash
 # Create a new environment
-conda create --name sctoolkit python=3.10 -y
+conda create --name sctoolkit python=3.10 llvmlite jupyterlab -c conda-forge -y
 
 # Activate it
 conda activate sctoolkit
