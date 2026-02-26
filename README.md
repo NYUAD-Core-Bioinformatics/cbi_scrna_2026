@@ -32,7 +32,12 @@ cd cbi_scrna_2026
 pip install -e .
 
 ```
-
+```bash
+# Run Jupyter
+conda activate sctoolkit
+cd cbi_scrna_2026
+jupyter-lab
+```
 **Datasets:**
 [Download link](https://drive.google.com/drive/folders/12lpQN-rJMFK-hg0W1IMcDV8acZ4ul3dG?usp=sharing)
 
